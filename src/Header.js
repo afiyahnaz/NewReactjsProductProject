@@ -29,10 +29,10 @@ const Header =() =>{
 
             <div className=" container d-flex flex-row   justify-content-end">
            <li>
-            <button className = "btn btn-sm btn-danger mx-3 ">Creat An Account</button>
+            <button className = "btn btn-sm btn-danger mx-3 bg-transparent btn-hover ">Create an Account</button>
            </li>
            <li>
-            <button className = "btn btn-sm btn-success ">Login</button>
+            <button className = "btn btn-sm btn-success  bg-transparent  btn-hover">Login</button>
            </li>
            </div>
          

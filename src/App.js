@@ -6,6 +6,7 @@ import Footer from './Footer';
 import { Routes,Route } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
+import ProductList from './ProductList';
 import Contact from './Contact';
 import UserList from './UserList';
 import NotFound from './NotFound';
@@ -23,12 +24,14 @@ const App = () =>{
          
                <Header /> 
                     <div className = "container">
+                        {/* dynamic content placeholder */}
                  
                            <Routes>
                                <Route path = '/' element = {<Home/>} />
                                <Route path = '/about' element = {<About/>} />
                                <Route path = '/contact' element = {<Contact/>} />
                                <Route path = '/users' element = {<UserList/>} />
+                               <Route path = '/products' element = {<ProductList/>} />
                                {/* <Route path = '*' element = {<Home />} /> */}
                                 <Route path = '*' element = {<NotFound/>} />
                            </Routes>
