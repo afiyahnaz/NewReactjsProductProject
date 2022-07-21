@@ -2,56 +2,54 @@ import React from 'react';
 import axios from 'axios';
 
 
+export default class UserList extends React.Component {
 
-class UserList extends React.Component{
-
-      state = {
+    state ={
         users : []
-      };
-     
-        constructor(){
-            super();
+    };
 
+    constructor(){
+        super();
 
-            axios.get('https://api.github.com/users')  //code for fetching data from github
-            .then((resolve,reject) => {
-               this.setState({users:resolve.data});
+        axios.get('http://api.github.com/users')
+           .then(res=> {
+              this.setState({ users: res.data });
             })
-            .catch(err => {
-                   console.log(err);
-            });
-         
-        
-        }
+            .catch(error => {
+                console.log(error);
+           
+        })
+    }
 
-    render (){
+    render () {
+        return <div className=" col-lg-4">
+                  <h1>User</h1>
+                  {this.state.users.map(user =>{
+                    return <>
+                               <div className ="card   col-lg-4">
+                                  <img src={user.avatar_url} class="card-img-top" alt="image"></img>
+                                      <div className = "card-body"> 
+                                         <h3 className = "card-tittle">{user.login}</h3> 
 
-        return<div className = "col-lg-2 col-md-3">
-            <h1>Users</h1>
-            {this.state.users.map((users) =>{
-                 return <div className = "card">
-                           <img src={users.avatar_url}className="card-img-top" alt="image"></img>
-                            <div className = "card-body">
-                               <h3 className = "card-tittle">{users.login}</h3> 
-                            </div>
-                               <div className = "card-footer">
-                                   <button className = "btn btn-sm btn-success">
-                                           Favourite   &nbsp;
-                                              <i className="fa fa-heart"></i>
-                                   
-                                    </button>
-                                 </div>  
-                 
-                       </div>
-                      })}
-          
-                 </div>
-        
-                
-        
+                                  </div>
+                                      <div className = "card-footer">
+                                        <button className ="btn btn-sm btn-success">
+                                            Favorite &nbsp;
+                                            <i className="fa fa-heart"></i>
+
+                                            </button>
+
+                                      </div>
+
+                              </div>
+                           
+                    
+                           </>
+                    })}
+               </div>
     }
 }
 
 
 
-export default UserList;
+
