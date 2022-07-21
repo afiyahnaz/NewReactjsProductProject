@@ -4,13 +4,13 @@ import React from 'react';
 class Counter extends React.Component{
 
 
-    state = {
-           count: 100
+    state = {   //state can not be assiased outside the class
+           count: 100 //it is internal to component
     };
 
     constructor(props){
         super(props);
-        this.state.count = this.props.count
+        this.state.count = this.props.count;  //reading props from APP
         // this.onInc = this.onInc.bind(this);
         // this.onDec = this.onDec.bind(this);
     }
