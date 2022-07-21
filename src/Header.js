@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 const Header =() =>{
 
-    return <nav class="navbar navbar-expand-lg navbar-light">
+    return <nav class="navbar navbar-expand-lg navbar-success bg-info">
     <div class="container">
     <i className="fa fa-hashtag text-danger"></i>
 
@@ -9,23 +11,31 @@ const Header =() =>{
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <Link class="nav-link active" aria-current="page" to="/">Home</Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">About</a>
+            <Link class="nav-link active" aria-current="page" to="/about">About</Link>
+          </li>
+         
+          <li class="nav-item">
+            <Link class="nav-link active" aria-current="page" to="/products">Product</Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Contact</a>
+            <Link class="nav-link active" aria-current="page" to="/users">Users</Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Product</a>
+            <Link class="nav-link active" aria-current="page" to="/contact">Contact</Link>
           </li>
+
+            <div className=" container d-flex flex-row   justify-content-end">
            <li>
             <button className = "btn btn-sm btn-danger mx-3 ">Creat An Account</button>
            </li>
            <li>
             <button className = "btn btn-sm btn-success ">Login</button>
            </li>
+           </div>
+         
           
          
           

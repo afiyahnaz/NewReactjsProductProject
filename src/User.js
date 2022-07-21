@@ -1,4 +1,4 @@
-const User = ({ user }) => <div className ="card   col-lg-4 m-3">
+const User = ({ user }) => <div className ="card  col-lg-6 m-3 border-danger b-bold">
                       <img src={user.avatar_url} class="card-img-top" alt="image"></img>
                           <div className = "card-body"> 
                              <h3 className = "card-tittle">{user.login}</h3> 

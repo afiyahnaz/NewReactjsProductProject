@@ -1,6 +1,6 @@
 const Footer = () =>{
-    return  <div className = "navbar navbar-expand-lg bg-dark text-white fixed-item align-item-center ">
-               &copy;2022 @ fsa.com
+    return  <div className = "navbar  navbar-expand-lg  fixed-bottom  bg-warning text-white justify-content-center ">
+                            &copy; 2022 @ fsa.com
     
     </div>
 }

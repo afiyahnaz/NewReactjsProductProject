@@ -2,26 +2,41 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 import './App.css';
 import Header from './Header';
-import UserList from './UserList';
 import Footer from './Footer';
+import { Routes,Route } from 'react-router-dom';
+import Home from './Home';
+import About from './About';
+import Contact from './Contact';
+import UserList from './UserList';
+import NotFound from './NotFound';
 
 
 
 
+//SPA single page one
+//one page index.html
 
 
 
 const App = () =>{
    return  <div>
-         <Header /> 
-      
-         <div className = "container">
-               <UserList/>
-         </div>  
-           <Footer />
-      
-        
-       </div>
+         
+               <Header /> 
+                    <div className = "container">
+                 
+                           <Routes>
+                               <Route path = '/' element = {<Home/>} />
+                               <Route path = '/about' element = {<About/>} />
+                               <Route path = '/contact' element = {<Contact/>} />
+                               <Route path = '/users' element = {<UserList/>} />
+                               {/* <Route path = '*' element = {<Home />} /> */}
+                                <Route path = '*' element = {<NotFound/>} />
+                           </Routes>
+                      </div>  
+              <Footer />
+       
+
+   </div>
 
 };
 
