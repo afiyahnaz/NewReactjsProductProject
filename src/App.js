@@ -10,6 +10,7 @@ import ProductList from './ProductList';
 import Contact from './Contact';
 import UserList from './UserList';
 import NotFound from './NotFound';
+import ProductDetail from './ProductDetail';
 
 
 
@@ -32,6 +33,7 @@ const App = () =>{
                                <Route path = '/contact' element = {<Contact/>} />
                                <Route path = '/users' element = {<UserList/>} />
                                <Route path = '/products' element = {<ProductList/>} />
+                               <Route path = '/products/:id' element = {<ProductDetail/>} />
                                {/* <Route path = '*' element = {<Home />} /> */}
                                 <Route path = '*' element = {<NotFound/>} />
                            </Routes>

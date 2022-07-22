@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import PhoneIcon from './images/phone.png';
 
 
@@ -12,11 +14,14 @@ function  Product ({ product }) {
        
         
           <div className = "card-body">
+             <Link to = "/products/{product._id}">
                <div className = "card-title">{product.brand} {product.model}</div>
                   <b>${product.price}</b>
                     <div>
                        In Stock: <input type ="checkbox" checked={product.instock} />
                  </div>
+            </Link>  
+           
              </div>
              <div className="card-footer">
                  <button className="btn btn-sm btn-success">
