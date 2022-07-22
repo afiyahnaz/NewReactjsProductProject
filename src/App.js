@@ -11,6 +11,7 @@ import Contact from './Contact';
 import UserList from './UserList';
 import NotFound from './NotFound';
 import ProductDetail from './ProductDetail';
+import NewProduct from "./NewProduct";
 
 
 
@@ -34,6 +35,7 @@ const App = () =>{
                                <Route path = '/users' element = {<UserList/>} />
                                <Route path = '/products' element = {<ProductList/>} />
                                <Route path = '/products/:id' element = {<ProductDetail/>} />
+                               <Route path = '/products/new' element = {<NewProduct/>} />
                                {/* <Route path = '*' element = {<Home />} /> */}
                                 <Route path = '*' element = {<NotFound/>} />
                            </Routes>
