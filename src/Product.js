@@ -5,7 +5,7 @@ import PhoneIcon from './images/phone.png';
 
 function  Product ({ product }) {
     return <>
-     <div className = "card col-lg-4 m-5">
+     <div className = "card col-lg-2 m-5">
             {
               product.img ?  
                  <img className = "card-img" src = {product.img}  /> :
