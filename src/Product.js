@@ -2,8 +2,16 @@ import { Link } from 'react-router-dom';
 
 import PhoneIcon from './images/phone.png';
 
+import  './Product.css';
+
 
 function  Product ({ product }) {
+
+  const calculateDiscountPrice = () => {
+    const discountAmount =  (product.price * product.discount / 100);
+    return product.price - discountAmount;
+
+  };
     return <>
      <div className = "card col-lg-2 m-5">
             {
@@ -16,7 +24,8 @@ function  Product ({ product }) {
           <div className = "card-body">
              <Link to = "/products/{product._id}">
                <div className = "card-title">{product.brand} {product.model}</div>
-                  <b>${product.price}</b>
+                 <div className="old-price"><b>${product.price}</b></div> 
+                   <div className="new-price"><b>${calculateDiscountPrice()}</b></div>
                     <div>
                        In Stock: <input type ="checkbox" checked={product.instock} />
                  </div>
