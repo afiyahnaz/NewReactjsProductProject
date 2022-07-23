@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import React from 'react';
-import axios from 'axios';
+
 
 import Product from './Product';
 import IfElse from './IfElse';
+import productSvc from './Services/ProductSvc';
 
 
 
@@ -20,11 +21,11 @@ class ProductList extends React.Component {
     constructor() {
         super();
 
-        axios.get('https://new-products-project.herokuapp.com/api/product/page/1/size/15')
-        .then(res=> this.setState({ products: res.data}))   //CORS
-        .catch(err=>this.setState({ hasError: true}));  //Cross origin resource sharing
-                                          //not allowed
-                                          //enable cors
+                    productSvc.get()
+                    .then(res => this.setState({ products: res.data, hasError: false}))
+                    .catch(err => this.setState( { hasError: true}))
+
+      
         }
     
 

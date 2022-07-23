@@ -1,6 +1,5 @@
-import axios from 'axios';
 import React from 'react';
-
+import ProductSvc from './Services/ProductSvc';
 
 class ProductDetail extends React.Component{
 
@@ -13,8 +12,8 @@ class ProductDetail extends React.Component{
 
     constructor(props){
         super(props);
-        axios.get('https://new-products-project.herokuapp.com/api/product/62cfe000bc86965820e42cb3')
-        .then(res=>{
+        ProductSvc.getProductById('62cfe000bc86965820e42cb3')
+           .then(res=>{
             console.log(res,'response came');
             this.setState({ product:res.data });
         })

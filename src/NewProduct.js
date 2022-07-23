@@ -1,6 +1,6 @@
 import React from 'react';
-import axios from 'axios';
 import ShouldRender from './ShouldRender';
+import ProductSvc from './Services/ProductSvc';
 
 class NewProduct extends React.Component{
 
@@ -33,7 +33,7 @@ class NewProduct extends React.Component{
     onSave =  async () =>{
         try{
             //consistance data
-            await axios.post('https://new-products-project.herokuapp.com/api/product',this.state.product);
+            await ProductSvc.post(this.state.product);
             this.setState({ success: true, hasError: false, product: {} });
             } catch (e) {
             this.setState({ success: false, hasError: true });
