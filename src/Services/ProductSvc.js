@@ -1,9 +1,9 @@
-import axios from 'axios';
+import axios from './axiosSvc';
 
-const host = 'https://new-products-project.herokuapp.com';
+
 
 const get = () =>{
-   return  axios.get(host + '/api/product/page/1/size/15')
+   return  axios.get('/api/product/page/1/size/15')
        //CROS  //Cross origin resource sharing
                                           //not allowed
                                           //enable cors
@@ -11,11 +11,11 @@ const get = () =>{
 };
 
 const post = ( product ) => {
-    return   axios.post(host + '/api/product',product);
+    return   axios.post('/api/product',product);
 }
 
 const getProductById = (id) => {
-    return  axios.get(host + '/api/product/' + id );
+    return  axios.get('/api/product/' + id );
 
 }
 
