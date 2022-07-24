@@ -4,7 +4,11 @@ import React from 'react';
 
 import Product from './Product';
 import IfElse from './IfElse';
+import ShouldRender from "./ShouldRender";
 import productSvc from './Services/ProductSvc';
+// import LoaderGif from './images/loaderGif.gif'
+import Loader from './Loader';
+
 
 
 
@@ -16,22 +20,24 @@ class ProductList extends React.Component {
             metadata:{},
             data:[]
          },
-         hasError: false
+         hasError: false,
+         loading: true   //intial state false
     };
     constructor() {
         super();
 
                     productSvc.get()
-                    .then(res => this.setState({ products: res.data, hasError: false}))
+                    .then(res => this.setState({ products: res.data,  hasError: false}))
                     .catch(err => this.setState( { hasError: true}))
+                    .finally(() => this.setState({ loading: false}));
 
       
                 }
 
         onRemoveChild =async () => {
             console.log('child deleted');
-            const res = await productSvc.get()
-            this.setState({ products: res.data, hasError: false});
+            const res = await productSvc.get(); //deleteing child
+            this.setState({ products: res.data, hasError: false}); //parent is refreshing
             
         };
     
@@ -39,7 +45,11 @@ class ProductList extends React.Component {
     render() {
         return <div>
 
-                     <h1>Product List</h1>
+                       <h1>Product List</h1>
+                          <ShouldRender cond = {this.state.loading}>
+                                    <Loader/>
+                          </ShouldRender>
+
                      <Link to="/products/new" className = "m-2 btn btn-danger btn-sm">
                         Add Product
                         <i className="fa fa-plus ms-2"></i>
