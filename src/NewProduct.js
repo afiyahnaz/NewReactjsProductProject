@@ -51,7 +51,7 @@ class NewProduct extends React.Component{
 
     render () {
         const { brand,model,price,inStock } = this.state.product;
-        return <div className = "col-lg-3">
+        return <div className = "col-lg-4">
                      <h1>List Of products</h1>
 
                        <ShouldRender cond={this.state.success}>

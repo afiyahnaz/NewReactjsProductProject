@@ -15,12 +15,18 @@ const post = ( product ) => {
 }
 
 const getProductById = (id) => {
-    return  axios.get('/api/product/' + id );
+    return  axios.get('/api/product/' + id ); //concatination
+
+}
+
+const remove = (id) =>{
+    return axios.delete(`/api/product/${id}`); //backticks
 
 }
 
 
 export default { get ,
                 post,
-                getProductById
+                getProductById,
+                remove
             };

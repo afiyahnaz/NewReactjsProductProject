@@ -1,19 +1,28 @@
 import { Link } from 'react-router-dom';
 
 import PhoneIcon from './images/phone.png';
+import ProductSvc from './Services/ProductSvc';
 
 import  './Product.css';
 
 
-function  Product ({ product }) {
+function  Product ({ product, onDelete }) {
 
   const calculateDiscountPrice = () => {
     const discountAmount =  (product.price * product.discount / 100);
     return product.price - discountAmount;
 
   };
+
+  const onRemove = async  () =>{
+    await  ProductSvc.remove(product._id);
+    onDelete();
+  };
+
+
+
     return <>
-     <div className = "card col-lg-2 m-5">
+     <div className = "card col-lg-3 m-5">
             {
               product.img ?  
                  <img className = "card-img" src = {product.img}  /> :
@@ -36,7 +45,12 @@ function  Product ({ product }) {
                  <button className="btn btn-sm btn-success">
                      Add to cart &nbsp;
                      <i class="fa fa-cart-plus  "></i>
-                 </button>
+                  </button>
+                     <button className="btn btn-sm btn-danger ms-5" onClick ={ onRemove  }>
+                      <i class = "fa fa-close">Delete</i>
+
+                     </button>
+                
              </div>
 
           </div>
