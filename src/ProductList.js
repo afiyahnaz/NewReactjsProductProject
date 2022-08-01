@@ -72,6 +72,23 @@ class ProductList extends React.Component {
 }
 
 
-
-
 export default ProductList;
+
+// virtual DOM is also Object -->is in memory...update which is only changed
+// DOM --> Browser
+// Vue
+
+//Mount
+//constructor
+//render
+//copmponetDidMount
+
+//update
+//shouldComponentUpdate
+//componetDidUpdate
+//render
+
+//unMount
+//componentWillUnMount
+
+

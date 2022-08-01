@@ -20,6 +20,7 @@ class AutoCounter extends React.Component{
         console.log('clear the interval');
         clearInterval(this.interval);
     }
+    
      render () {
 
         return <>
