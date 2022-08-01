@@ -1,7 +1,5 @@
 import axios from './axiosSvc';
 
-
-
 const get = () =>{
    return  axios.get('/api/product/page/1/size/15')
        //CROS  //Cross origin resource sharing

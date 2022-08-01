@@ -23,18 +23,25 @@ class ProductList extends React.Component {
          hasError: false,
          loading: true   //intial state false
     };
-    constructor() {
-        super();
+    // constructor() { //constructor only used for instillazation purpose
+        // super();
 
-                    productSvc.get()
-                    .then(res => this.setState({ products: res.data,  hasError: false}))
-                    .catch(err => this.setState( { hasError: true}))
-                    .finally(() => this.setState({ loading: false}));
+    // } 
 
-      
-                }
+        componentDidMount = async () => {
+            try{
+                const res = await productSvc.get();
+                this.setState({ products: res.data,  hasError: false});
+            }  catch (err) {
+                this.setState( { hasError: true});
+            }  finally {
+               this.setState({ loading: false})
 
-        onRemoveChild =async () => {
+            }
+
+        }
+
+        onRemoveChild = async () => {
             console.log('child deleted');
             const res = await productSvc.get(); //deleteing child
             this.setState({ products: res.data, hasError: false}); //parent is refreshing

@@ -1,11 +1,18 @@
-const Home =() =>{
+import React from 'react';
+import AutoCounter from './AutoCounter';
+import Counter from './Counter';
+
+
+// Life cycle methods
+
+
+function Home() {
     return <>
-
-          <h1>Home Page</h1>
-          <h2>Hello ReactJs</h2>
+         {/* <Counter/> */}
+        <AutoCounter  count={0}/>
+    
     </>
-};
-
+}
 
 
 
