@@ -9,16 +9,16 @@ import { useState }   from 'react';
 //hooks
 const CounterFunc = ({ count }) => {
 
-    const [countState, setCountState] = useState(count);
-
+    const [countState, setCountState] = useState(count); //destructuring
+                                       //useState is hook
     
 const inc =() => {
-    setCountState(1000);
+    setCountState(countState + 1 );
 
 }
 
 const dec =() => {
-   setCountState(10);
+   setCountState(countState - 1 );
 
 }
     return<>

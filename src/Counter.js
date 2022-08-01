@@ -31,15 +31,15 @@ class Counter extends React.Component{
              });
        }
 
-       componentDidMount(){  //who is calling React Library
-        console.log('componentDidMount');
+    //    componentDidMount(){  //who is calling React Library
+    //     console.log('componentDidMount');
 
-       }
+    //    }
 
-       shouldComponentUpdate(nextProps, nextState){
-        if (this.state.count === nextState.count) return false;
-        return true;
-       }
+    //    shouldComponentUpdate(nextProps, nextState){
+    //     if (this.state.count === nextState.count) return false;
+    //     return true;
+    //    }
 
        componentDidUpdate(){
         console.log('Updated');
