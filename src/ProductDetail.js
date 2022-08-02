@@ -1,28 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ProductSvc from './Services/ProductSvc';
 
-class ProductDetail extends React.Component{
+const ProductDetail = () => {
 
-    state = {
-        product:{}
-      
+   
 
-    };
+    const [product, setProduct]   = useState({});
 
 
-    constructor(props){
-        super(props);
+
+    useEffect(()=>{
+
         ProductSvc.getProductById('62cfe000bc86965820e42cb3')
-           .then(res=>{
-            console.log(res,'response came');
-            this.setState({ product:res.data });
-        })
-        .catch(err=>console.log(err));
-    }
+        .then(res=>{
+         console.log(res,'response came');
+         setProduct(res.data);
+     })
+     .catch(err=>console.log(err));
 
-
-    render () {
-       const {brand,model,price}  = this.state.product;
+    }, []);
+    
+       const {brand,model,price}  = product;
         return <div>  
                      <h2>Welcome to ProductDetails page</h2>
                       <b>{brand} </b>
@@ -30,10 +28,6 @@ class ProductDetail extends React.Component{
                       <div><b>${price}</b></div>
                  </div>
       
-    }
+    
 };
-
-
-
-
 export default ProductDetail;

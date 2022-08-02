@@ -1,7 +1,8 @@
 import axios from './axiosSvc';
 
-const get = () =>{
-   return  axios.get('/api/product/page/1/size/15')
+const get = (page, limit) =>{
+
+   return  axios.get(`/api/product/page/${page}/size/${limit}`);
        //CROS  //Cross origin resource sharing
                                           //not allowed
                                           //enable cors
