@@ -1,8 +1,11 @@
 import axios from './axiosSvc';
 
-const get = (page, limit) =>{
-
-   return  axios.get(`/api/product/page/${page}/size/${limit}`);
+const get = (page, limit, search, sort) =>{
+     //https://api.herokuapp.com/api/products/page/1/size/10?search=apple
+     const [sortBy, sortDir]  = sort.split(' '); //Price ASC
+   
+   return  axios.get(`/api/product/page/${page}/size/${limit}?search=${search}&sort=${sortBy}&dir=${sortDir}`);
+  
        //CROS  //Cross origin resource sharing
                                           //not allowed
                                           //enable cors

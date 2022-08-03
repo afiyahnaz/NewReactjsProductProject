@@ -21,17 +21,20 @@ const ProductList = () =>  {
 
     });
 
-    const [page, setPage]  =  useState(1);
-    const [ limit, setLimit]  = useState(5);
+    const [page, setPage]     = useState(1);
+    const [ limit, setLimit]  = useState(10);
+    const [search, setSearch] = useState('');
+    const [sort, setSort]     = useState('');
 
     const [ hasError, setError]  = useState(false);
     const [ loading, setLoading] = useState(true);
+   
     
        useEffect( ()=>{
         // IIFE
         (async function () {
             try{
-                const res = await productSvc.get(page, limit);
+                const res = await productSvc.get(page, limit, search, sort);
                 setProducts(res.data);
                 setError(false);
             } catch (err) {
@@ -41,22 +44,39 @@ const ProductList = () =>  {
             }
 
         }) ();
-       }, [page]); //no dependence so empty array
+       }, [page, limit, search, sort]); //no dependence so empty array
 
        const onRemoveChild = async () => {
            const res = await productSvc.get(); //deleteing child
           setProducts(res.data); //parent is refreshing
           setError(false);
         
-    };
+          };
 
     const onPrev = () => {
         if (page > 1 )  setPage(page - 1 );
-    };
+       };
 
     const onNext = () => {
        if (page < products.metadata.totalPages) setPage(page + 1 );
         
+      };
+
+    const onPageSizeChange = (evt) => {
+           setLimit(evt.target.value);
+          
+        };
+
+    const onSearch = (evt) => {
+       if(evt.key === 'Enter') {
+        console.log(evt.target.value);
+        setSearch(evt.target.value); //make a api call
+       }
+       
+    }
+
+    const onSortChange = (evt) => {
+        setSort(evt.target.value);
     };
 
     return <div>
@@ -79,6 +99,25 @@ const ProductList = () =>  {
                     <i className = "fa fa-arrow-left"></i>
                 </button>
                 <div>
+                    <select onChange={onPageSizeChange} value={limit} className="form-select">
+                        <option>10</option>
+                        <option>20</option>
+                        <option>30</option>
+                        <option>40</option>
+                        <option>50</option>
+                    </select>
+                </div>
+                <div>
+                    <input  onKeyUp={onSearch} type = "text" className="form-control" placeholder = "search"/>
+                </div>
+                <div>
+                    <select onChange={onSortChange} className="form-select">
+                        <option value="">Sort By</option>
+                        <option value ="price ASC">Price Ascending</option>
+                        <option value="price DESC">price Descending</option>
+                    </select>
+                </div>
+                <div>
                     <button  disabled className="btn btn-outline-secondary">
                             page {page} of {products.metadata.totalPages}
                     </button>
@@ -94,7 +133,7 @@ const ProductList = () =>  {
 
   </IfElse>
 
-</div>
+  </div>
 };
 export default ProductList;
 
