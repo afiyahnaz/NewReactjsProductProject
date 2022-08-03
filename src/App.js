@@ -12,6 +12,7 @@ import UserList from './UserList';
 import NotFound from './NotFound';
 import ProductDetail from './ProductDetail';
 import NewProduct from "./NewProduct";
+import Login from "./Login";
 
 
 
@@ -36,6 +37,7 @@ const App = () =>{
                                <Route path = '/products' element = {<ProductList/>} />
                                <Route path = '/products/:id' element = {<ProductDetail/>} />
                                <Route path = '/products/new' element = {<NewProduct/>} />
+                               <Route path = '/login' element = {<Login/>} />
                                {/* <Route path = '*' element = {<Home />} /> */}
                                 <Route path = '*' element = {<NotFound/>} />
                            </Routes>

@@ -12,7 +12,7 @@ function Home() {
          {/* <Counter/> */}
         {/* <AutoCounter  count={0}/> */}
         {/* <CounterFunc count ={10 }/> */}
-        <AutoCounter/>
+        {/* <AutoCounter/> */}
     
     </>
 }

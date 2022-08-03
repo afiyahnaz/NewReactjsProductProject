@@ -2,7 +2,8 @@ import axios from './axiosSvc';
 
 const get = (page, limit, search, sort) =>{
      //https://api.herokuapp.com/api/products/page/1/size/10?search=apple
-     const [sortBy, sortDir]  = sort.split(' '); //Price ASC
+     const [sortBy, sortDir]  = sort.split(' ');//'give space between commas'
+      //Price ASC
    
    return  axios.get(`/api/product/page/${page}/size/${limit}?search=${search}&sort=${sortBy}&dir=${sortDir}`);
   
