@@ -1,6 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header =() =>{
+
+  const navigate = useNavigate();
+
+    const onLogOut = () => {
+      localStorage.removeItem('user');
+      navigate('/login');
+    };
 
     return <nav class="navbar navbar-expand-lg navbar-success bg-info">
     <div class="container">
@@ -33,6 +40,9 @@ const Header =() =>{
            </li>
            <li>
             <Link to ="/login" className = "btn btn-sm btn-success   ">Login</Link>
+           </li>
+           <li >
+            <button onClick={onLogOut} className = "btn btn-sm btn-danger ms-3  ">Logout</button>
            </li>
            </div>
          
